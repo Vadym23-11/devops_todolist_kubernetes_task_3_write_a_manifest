@@ -1,4 +1,4 @@
-# Django ToDo list
+a# Django ToDo list
 
 This is a to-do list web application with the basic features of most web apps, i.e., accounts/login, API, and interactive UI. To do this task, you will need:
 
@@ -32,7 +32,7 @@ You can now browse the [API](http://localhost:8000/api/) or start on the [landin
 Create a Kubernetes manifest for a pod that will contain a ToDo app container:
 
 1. Fork this repository.
-1. Create a simple `Dockerfile` for the ToDo application
+1. Create a simple `src/Dockerfile` for the ToDo application
 7. Add readiness endpoint code to `api` of the application (modify `api/views.py` and `api/urls.py`)
 1. Add liveness endpoint cide to `api` of the application (modify `api/views.py` and `api/urls.py`)
 1. Build your image and push it to your personal Docker Hub account into the `todoapp` repository with the `3.0.0` tag (`todoapp:3.0.0`)

@@ -1,3 +1,4 @@
+from django.http import HttpResponse, JsonResponse
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
@@ -10,5 +11,7 @@ router.register(r"todos", views.TodoViewSet)
 
 app_name = "api"
 urlpatterns = [
-    path("", include(router.urls))
+    path("", include(router.urls)),
+    path("ready/", views.readiness, name="readiness"),
+    path("health/", views.health, name="health"),
 ]
