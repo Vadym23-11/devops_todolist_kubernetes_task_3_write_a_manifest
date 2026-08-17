@@ -32,14 +32,14 @@ kubectl get pods -n todoapp
 You can access the ToDo application directly from your local machine using the `port-forward` command. Assuming your application runs on port 8080:
 
 ```bash
-kubectl port-forward pod/todoapp-pod 8080:8080 -n todoapp
+kubectl port-forward pod/todoapp-pod 8000:8000 -n todoapp
 ```
 
-Now, open your web browser and navigate to `http://localhost:8080`. 
+Now, open your web browser and navigate to `http://localhost:8000`. 
 
 You can also test your health endpoints:
-- `http://localhost:8080/readiness`
-- `http://localhost:8080/health`
+- `http://localhost:8000/readiness`
+- `http://localhost:8000/health`
 
 ## 3. Test the Application using the Busybox Container
 
@@ -55,11 +55,11 @@ Look for the `IP` column and copy the IP address (for example, `10.244.0.5`).
 Run a command inside the running busybox container to send an HTTP request to the ToDo app pod. Replace `<POD_IP>` with the IP address you found in Step A, and `<busybox-pod-name>` with the actual name of your busybox pod:
 
 ```bash
-kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8080
+kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8000
 ```
 
 To test the specific probes you created:
 ```bash
-kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8080/health
-kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8080/readiness
+kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8000/health
+kubectl exec -it <busybox-pod-name> -n todoapp -- curl http://<POD_IP>:8000/readiness
 ```
